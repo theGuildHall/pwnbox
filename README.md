@@ -16,18 +16,18 @@ However, I suggest you look into what each command does, where it goes, and how 
   what the box?
 ```
 
-Step 1: Clone Repo 
+## Step 1: Clone Repo 
 In my setup below, I have created a directory called "gitclones" in my home directory.
 
 `mkdir ~/gitclones && cd ~/gitclones`
 `git clone https://github.com/theGuildHall/pwnbox.git`
 
-Step 2: Copy over the files
+## Step 2: Copy over the files
 
 `cd ~/gitclones/pwnbox`
 `sudo cp *.sh /opt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt`
 
-Step 3: Update your terminal
+## Step 3: Update your terminal
 
 nano .bashrc
 erase everything inside it (or better yet, make a backup of it cause that's a good habit: `cp ~/.bashrc ~/.bashrc.bak`)
@@ -176,7 +176,7 @@ Then reload your bashrc file:
 
 ### NOTE: Once you are connected to the HTB vpn, you'll see your IP and other info in your termianl. Otherwise, it'll just show your username/host and current working directory.
 
-Step 4: Update theme
+## Step 4: Update theme
 
 Copy background image to machine:
 `sudo cp gitclones/pwnbox/htb.jpg /usr/share/backgrounds/`
@@ -191,11 +191,11 @@ System -> Preferences -> Look and Feel -> Appearance
 
 You should now see a theme called "HackTheBox". Select it and select "Apply Background".
 
+### At this point, you should have most of the Pwnbox 'look and feel'. However, if you want to further customize it, keep following allong.
+
 ---
 
-At this point, you should have most of the Pwnbox 'look and feel'. However, if you want to further customize it, keep following allong.
-
-Step 5: Updating the 'Panel'
+## Step 5: Updating the 'Panels'
 
 On the top panel, right click one of the three system monitors graphs (the ones showing your 'process', 'memory', and 'network'). Select "Remove from Panel".
 
@@ -218,7 +218,7 @@ Right click on a blank space on the top panel and choose "Add to Panel". In the 
 
 Right click on a blank space on the top panel and search for "System monitor". Select it and add it. Right click on the little black box that appeared, select "preferences" and under "System monitor width", update it to "135" pixels, and updated the field below it to "100" milliseconds.
 
-## Conclusion
+# Conclusion
 
 This should be it for the setup! The actual pwnbox has some extra icons on the desktop such as a shortcut to "bloodhound", "burpsuite", and others. There's even a MacOS launcher bar on the bottom. I'm going to leave that up to you to add. 
 
