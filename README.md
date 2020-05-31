@@ -1,106 +1,37 @@
 # Pwnbox
 
 Want to replicate Hack the Box very own Pwnbox? Follow the guide below!
-
-## Step 1 - Download the ISO/ova image
-
-Visit the Parrotsec page and download the ISO or ova image, depending on what your environment calls for. I have an Unraid server at home which allows me to create VMs, so that's what I'm going to use as an example. This setup should work for any VM software setup.
-
-- [Download OVA](https://download.parrot.sh/parrot/iso/4.9.1/Parrot-security-4.9.1_x64.iso)
-
-Once you have downloaded the OS, install it and proceed to step 2.
-
-## Step 2 - Setup your scripts in /opt
-
-Pwnbox has some scripts inside folder `/opt` which you will need to create. Use `sudo` to create these files
-
-### banner
+This should give you the "look and feel" of pwnbox used by Hack The Box.
+Everything shown here can be done in your own Parrot OS, whether it is VM or main OS.
+However, I suggest you look into what each command does, where it goes, and how you can go about customizing it to your own taste. For me, whenever I ssh into my Parrot machine, it gives me fun hackthebox logo. Go on, make it your own!
 
 ```bash
-Welcome to your Parrot Linux desktop!
 
-Internet access is allowed, subject to the following:
-1. This instance is not meant to perform assessments or interact with any live targets.
-2. Pen-testing any target (with or without consent) outside of HTB labs is prohibited.
+  █  █         ▐▌     ▄█▄ █          ▄▄▄▄
+  █▄▄█ ▀▀█ █▀▀ ▐▌▄▀    █  █▀█ █▀█    █▌▄█ ▄▀▀▄ ▀▄▀
+  █  █ █▄█ █▄▄ ▐█▀▄    █  █ █ █▄▄    █▌▄█ ▀▄▄▀ █▀█
 
-Remember! Do not store any personal or sensitive information in this box!
-Its only purpose is to allow you to play in our labs.
+  P  E  N   -   T  E  S  T  I  N  G     L  A  B  S
 
-Feel free to install any tools you prefer. PS: You have sudo :)
-
-Note that once this instance is terminated, all data including tools you installed will be lost!
-
+  what the box?
 ```
 
-### banner.sh
+Step 1: Clone Repo 
+In my setup below, I have created a directory called "gitclones" in my home directory.
 
-```bash
-#!/bin/bash
-echo -e "\e[32m       ▄▄▄▀▄▄▄"
-echo -e "\e[32m  ▄▄▀▀▀       ▀▀▄▄▄"
-echo -e "\e[32m █▀▀▄▄         ▄▄▀▀█ \e[37m █  █         ▐▌     ▄█▄ █          ▄▄▄▄"
-echo -e "\e[32m █    ▀▀▀▄▄▄▀▀▀    █ \e[37m █▄▄█ ▀▀█ █▀▀ ▐▌▄▀    █  █▀█ █▀█    █▌▄█ ▄▀▀▄ ▀▄▀"
-echo -e "\e[32m █        █        █ \e[37m █  █ █▄█ █▄▄ ▐█▀▄    █  █ █ █▄▄    █▌▄█ ▀▄▄▀ █▀█"
-echo -e "\e[32m █        █        █"
-echo -e "\e[32m █        █        █ \e[37m P  E  N   -   T  E  S  T  I  N  G     L  A  B  S"
-echo -e "\e[32m ▀▀▄▄     █     ▄▄▀▀"
-echo -e "\e[32m     ▀▀▀▄▄█▄▄▀▀▀"
-echo " "
-cat /opt/banner | /usr/games/lolcat -S 55
+`mkdir ~/gitclones && cd ~/gitclones`
+`git clone https://github.com/theGuildHall/pwnbox.git`
 
-read -r -p "Press ENTER key to close. " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
-then
-    exit
-fi
+Step 2: Copy over the files
 
-```
+`cd ~/gitclones/pwnbox`
+`sudo cp *.sh /opt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt`
 
-### vpnbash.sh
+Step 3: Update your terminal
 
-```bash
-#!/bin/bash
-htbip=$(ip addr | grep tun0 | grep inet | grep 10. | tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1)
-
-if [[ $htbip == *"10."* ]]
-then
-   echo "$htbip"
-else
-   echo ""
-fi
-```
-
-### vpnpanel.sh
-
-```bash
-#!/bin/bash
-htbip=$(ip addr | grep tun0 | grep inet | grep 10. | tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1)
-lab=$(cat /etc/openvpn/*.conf | grep "remote " | cut -d " " -f 2 | cut -d "." -f 1 | cut -d "-" -f 2-)
-
-if [[ $htbip == *"10."* ]]
-then
-   gwip=$(route -n | grep tun0 | grep UG | tr -s " " | cut -d " " -f 2)
-   ping=$(ping -c 1 $gwip -W 1 | sed '$!d;s|.*/\([0-9.]*\)/.*|\1|' | cut -c1-4)
-   echo "HTB VPN: $lab ($htbip) [$ping ms]"
-else
-   echo "HTB VPN: Disconnected"
-fi
-```
-
-### vpnserver.sh
-
-```bash
-#!/bin/bash
-cat /etc/openvpn/*.conf | grep "remote " | cut -d " " -f 2 | cut -d "." -f 1 | cut -d "-" -f 2-
-```
-
-### PS1 (terminal)
-
-`export PS1='\[\033[1;32m\]\342\224\200$([[ $(/opt/vpnbash.sh) == *"10."* ]] && echo "[\[\033[1;34m\]$(/opt/vpnserver.sh)\[\033[1;32m\]]\342\224\200[\[\033[1;37m\]$(/opt/vpnbash.sh)\[\033[1;32m\]]\342\224\200")[\[\033[1;37m\]\u\[\033[01;32m\]@\[\033[01;34m\]\h\[\033[1;32m\]]\342\224\200[\[\033[1;37m\]\w\[\033[1;32m\]]\$\[\e[0m\]'`
-
-If you want to make this permanent, edit your `bashrc` file. This is the `bashrc` file from pwnbox:
-
-- `nano ~/.bashrc`
+nano .bashrc
+erase everything inside it (or better yet, make a backup of it cause that's a good habit: `cp ~/.bashrc ~/.bashrc.bak`)
+Copy this into your .bashrc file:
 
 ```bash
 # ~/.bashrc: executed by bash(1) for non-login shells.
@@ -239,23 +170,58 @@ if ! shopt -oq posix; then
   fi
 fi
 ```
-Create folder in /opt called 'bloodhound'
 
-- `sudo mkdir /opt/bloodhound`
+Then reload your bashrc file:
+`source ~/.bashrc`
 
-Then create script `startBH.sh`
+### NOTE: Once you are connected to the HTB vpn, you'll see your IP and other info in your termianl. Otherwise, it'll just show your username/host and current working directory.
 
-```bash
-#!/bin/bash
-NEOSTATUS=$(sudo neo4j status)
-if [ "$NEOSTATUS" == "Neo4j is not running" ]; then
-   echo "Database is not running. Starting..."
-   sudo neo4j start
-   sleep 10
-   bloodhound
-else
-   echo "Database is already started."
-   bloodhound
-fi
-```
+Step 4: Update theme
 
+Copy background image to machine:
+`sudo cp gitclones/pwnbox/htb.jpg /usr/share/backgrounds/`
+
+Copy icons and sublime text to machine:
+`sudo cp -R ~/gitclones/pwnbox/Material-Black-Lime-Numix-FLAT/ /usr/share/icons/`
+`sudo cp -R ~/gitclones/pwnbox/htb /usr/share/icons/`
+`sudo mkdir /usr/share/themes/HackTheBox && sudo cp ~/gitclones/pwnbox/index.theme /usr/share/themes/HackTheBox`
+
+Now go to the top menu bar and choose:
+System -> Preferences -> Look and Feel -> Appearance
+
+You should now see a theme called "HackTheBox". Select it and select "Apply Background".
+
+---
+
+At this point, you should have most of the Pwnbox 'look and feel'. However, if you want to further customize it, keep following allong.
+
+Step 5: Updating the 'Panel'
+
+On the top panel, right click one of the three system monitors graphs (the ones showing your 'process', 'memory', and 'network'). Select "Remove from Panel".
+
+Next, on the top panel, right click the "shell" icon (the one that looks like a bash prompt). Select "Properties".
+
+### NOTE:You will see the "Launcher Properties" pop up. This is where you can really customize your ParrotOS. You don't need to follow what Hack the Box did. You can add ANY script you want, any command, icon, etc, to your OS! This is how you can truly personalize it.
+
+Click on the bash icon to the left, and a window should pop up asking you to select an icon. Navigate to /usr/share/icons/htb/ and choose `bash.svg`.
+
+### To install sublime text...
+
+`sudo cp -R ~/gitclones/pwnbox/sublime_text /opt`
+Then on the top panel, right click on the "notepad" and select "properties". In the "name", change it to "Sublime", and then under "command", change it to "/opt/sublime_text/sublime %F". Then click on the icon to the left, and change it to "/opt/icons/sublime-text.png"
+
+### To get the 'ping panel'
+
+Right click on a blank space on the top panel and choose "Add to Panel". In the search bar, type "command", select "command" then click "add". The current time should populate on the top panel. Right click on it, and in the command section, paste in `/opt/vpnpanel.sh`, with an interval of "5" seconds. It should show "HTB VPN: Disconnected" unless you are on the vpn.
+
+### To get the "processor" menu
+
+Right click on a blank space on the top panel and search for "System monitor". Select it and add it. Right click on the little black box that appeared, select "preferences" and under "System monitor width", update it to "135" pixels, and updated the field below it to "100" milliseconds.
+
+## Conclusion
+
+This should be it for the setup! The actual pwnbox has some extra icons on the desktop such as a shortcut to "bloodhound", "burpsuite", and others. There's even a MacOS launcher bar on the bottom. I'm going to leave that up to you to add. 
+
+I highly suggest adding VNC support if needed. I am currently running tigerVNC on my Parrot machine and it works great! 
+
+Otherwise, that finishes that for this tutorial.
