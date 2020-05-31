@@ -1,0 +1,968 @@
+<style>
+html {
+    background-color: #f6f6f6;
+    margin: 16px;
+}
+body {
+    color: #333;
+    font-family: "Open Sans", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+ul {
+    padding-left: 1.2rem;
+}
+li { margin: 2px; }
+ul.topic {
+    margin-top: 0;
+    padding-left: 1.5rem;
+}
+ul.topic ul {
+    margin: 0.2em 0;
+}
+h1 {
+    font-size: 2.0rem;
+    margin: 0;
+}
+h2 {
+    color: #444;
+    font-size: 1.4rem;
+    margin: 1em 0 0.1em 0;
+}
+h3 {
+    color: #666;
+    font-size: 1.05rem;
+    margin: 1em 0 0.25em 0.5em;
+    font-weight: bold;
+}
+a {
+    color: #000;
+}
+article { display: block; }
+.release-date, .forum-link {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666;
+}
+</style>
+
+<h1>Stable Channel Changelog</h1>
+
+<article class="current">
+<h2>3.2.2 (Build 3211)</h2>
+<div class="release-date">1 October 2019</div>
+<ul>
+    <li>Mac: Added Notarization</li>
+    <li>Fixed a performance regression when moving the caret upwards in large files</li>
+    <li>Fixed a memory leak</li>
+    <li>Fixed not being able to swap lines down with the last line if it was empty</li>
+    <li>Git: Fixed <tt>includeIf</tt> handling in git config files not interpreting <tt>~</tt> relative paths correctly</li>
+</ul>
+</article>
+
+<article>
+<h2>3.2.1 (Build 3207)</h2>
+<div class="release-date">6 April 2019</div>
+<ul>
+    <li>Various syntax highlighting improvements</li>
+    <li>Git: Git repositories at the top level of a users home directory are ignored for performance reasons. This can be changed via the <tt>allow_git_home_dir</tt> setting.</li>
+    <li>Git: Improved performance with a large number of git repositories in the side bar</li>
+    <li>Git: Fixed UTF8 BOMs not being handled correctly in <tt>.gitignore</tt> files</li>
+    <li>Fixed a crash in the Git repository handling</li>
+    <li>Improved file indexing behavior in some scenarios</li>
+    <li>Improved scrolling logic in some scenarios</li>
+    <li>Fixed block carets changing the way text selection works</li>
+    <li>Fixed <tt>swap_line_up</tt> and <tt>swap_line_down</tt> transforming tabs into spaces</li>
+    <li>Mac: Added a workaround for a MacOS issue with DisplayLink adapters</li>
+    <li>Linux: Fixed compatibility with old Linux distributions</li>
+    <li>Linux: Improved high dpi handling under KDE</li>
+    <li>Linux: Tweaked the way text scaling is handled</li>
+    <li>Linux: Fixed incorrect file ownership in the deb packages</li>
+    <li>API: Fixed an incompatibility with SublimeREPL</li>
+    <li>API: Fixed regression with phantoms interfering with home/end behavior</li>
+</ul>
+</article>
+
+<article class="current">
+<h2>3.2 (Build 3200)</h2>
+<div class="release-date">13 March 2019</div>
+<div class="forum-link">See also the <a href="https://www.sublimetext.com/blog/articles/sublime-text-3-point-2">Announcement Post</a></div>
+
+<h3>NEW: Git Integration</h3>
+<ul class="topic">
+    <li>Files and folders in the sidebar will now display badges to indicate Git status</li>
+    <li>Ignored files and folders are visually de-emphasized</li>
+    <li>The current Git branch and number of modifications is displayed in the status bar</li>
+    <li>Commands have been added to open a repository, see file or folder history, or blame a file in <a href="https://www.sublimemerge.com">Sublime Merge</a></li>
+    <li>Themes may customize the display of sidebar badges and status bar information</li>
+    <li>The setting <tt>show_git_status</tt> allows disabling Git integration</li>
+    <li>All file reads are done through a custom, high-performance Git library written for <a href="https://www.sublimemerge.com">Sublime Merge</a></li>
+    <li><a href="https://www.sublimetext.com/docs/3/git_integration.html">Read the documentation</a></li>
+</ul>
+
+<h3>NEW: Incremental Diff</h3>
+<ul class="topic">
+    <li>All changes to a document are now represented by dedicated markers in the gutter</li>
+    <li>Diff markers show added, modified and deleted lines</li>
+    <li>The setting <tt>mini_diff</tt> controls incremental diff behavior</li>
+    <li>In coordination with the new Git functionality, diffs can be calculated against HEAD or the index</li>
+    <li>The <tt>git_diff_target</tt> setting controls base document source</li>
+    <li>API methods <tt>View.set_reference_document()</tt> and <tt>View.reset_reference_document()</tt> allow controlling the diff</li>
+    <li>
+        The following diff-related commands were added:
+        <ul>
+            <li>Next Modification</li>
+            <li>Previous Modification</li>
+            <li>Revert Modification</li>
+        </ul>
+    </li>
+    <li>Full inline diffs of each change can be displayed via the right-click context menu, or keyboard shortcuts</li>
+    <li>Inline diff presentation can be changed by customizing a color scheme</li>
+    <li><a href="https://www.sublimetext.com/docs/3/inline_diffs.html">Read the documentation</a></li>
+</ul>
+
+<h3>Editor Control</h3>
+<ul class="topic">
+    <li>Added <tt>block_caret</tt> setting</li>
+    <li>Improve positioning and sizing of gutter icons in some situations</li>
+    <li>Fixed <tt>draw_minimap_border</tt> setting not working</li>
+    <li>Linux: Improved input method (IM) support - fcitx, ibus, etc</li>
+    <li>Linux: Fixed a crash when using <tt>GTK_IM_MODULE=xim</tt></li>
+    <li>Linux: Tweaked behavior of up/down when on the first and last lines of a file to better match platform conventions</li>
+    <li>Windows: Improved IME support</li>
+</ul>
+
+<h3>Themes/UI</h3>
+<ul class="topic">
+    <li>
+        Enhanced the <tt>.sublime-theme</tt> format:
+        <ul>
+            <li>Added variables support and associated revised JSON format with <tt>variables</tt> key</li>
+            <li>Added <tt>extends</tt> keyword to have one theme derive from another</li>
+            <li>Colors may be specified via CSS syntax</li>
+        </ul>
+    </li>
+    <li>Improved performance with large numbers of rules in a <tt>.sublime-theme</tt></li>
+    <li>Linux: Moved to GTK3</li>
+    <li>Linux: Various high DPI fixes</li>
+    <li>Mac: Added Mojave support</li>
+    <li>Mac: Add full support for macOS native tabs</li>
+    <li>Mac: Ensure context menus are shown without scrolling</li>
+    <li>Mac: Error message dialogs can now be closed with the escape key</li>
+    <li>Mac: Improved window placement</li>
+    <li>Mac: Improved resize performance</li>
+    <li>Windows: Fixed minimized and maximized state not restoring</li>
+    <li>Windows: Fixed a bug where auto complete entries would contain an ellipsis when not required</li>
+</ul>
+
+<h3>Text Rendering</h3>
+<ul class="topic">
+    <li>Support for Unicode 11.0</li>
+    <li>Improved rendering of combining characters</li>
+    <li>Fixed a caret positioning bug when non-trivial graphemes are present</li>
+    <li>Fixed some cases of incorrect glyph positions on Windows and Mac</li>
+    <li>Linux: Color glyphs are now drawn properly on light backgrounds</li>
+    <li>Windows: Fixed a rendering issue with certain combining characters</li>
+    <li>Windows: Fixed some fonts having an incorrect baseline</li>
+</ul>
+
+<h3>Color Schemes</h3>
+<ul class="topic">
+    <li>Added <tt>block_caret</tt> key to use in conjunction with block carets</li>
+    <li><tt>caret</tt> values now respect alpha as expected, rather than pre-blending against the background color</li>
+    <li>Added the <tt>foreground_adjust</tt> property to rules with a <tt>background</tt>. Accepts CSS color mod adjusters to manipulate the saturation, lightness or opacity of the foreground color.</li>
+</ul>
+
+<h3>Syntax Highlighting</h3>
+<ul class="topic">
+    <li>Many syntax highlighting improvements, including significant improvements to:
+        <ul>
+            <li><i>Clojure</i>, with thanks to <a href="https://github.com/mitranim">Nelo Mitranim</a></li>
+            <li><i>D</i></li>
+            <li><i>Go</i>, with thanks to <a href="https://github.com/mitranim">Nelo Mitranim</a></li>
+            <li><i>Lua</i>, with thanks to <a href="https://github.com/Thom1729">Thomas Smith</a></li>
+        </ul>
+    </li>
+    <li>Fixed a crash that could occur when nesting embed patterns in <tt>.sublime-syntax</tt> files</li>
+    <li>Syntax Tests: Allow syntax test files to have a UTF-8 BOM</li>
+</ul>
+
+<h3>Files and Folders</h3>
+<ul class="topic">
+    <li>Improve performance of file watching for ignored paths on Windows and Mac</li>
+    <li>Windows: Fixed Open File treating paths as case-sensitive</li>
+    <li>Windows: Properly unlock directories after contained files are closed</li>
+</ul>
+
+<h3>API</h3>
+<ul class="topic">
+    <li>Added <tt>View.set_reference_document()</tt> and <tt>View.reset_reference_document()</tt> to control diff generation</li>
+    <li>Phantoms are now drawn correctly in conjunction with <tt>draw_centered</tt></li>
+    <li>Various minor improvements related to plugin module loading and unloading</li>
+    <li>Added support for <tt>hwb()</tt> colors to minihtml</li>
+    <li>Added a custom <tt>min-contrast()</tt> adjuster for the CSS color mod function in minihtml</li>
+    <li>Mac: Fixed a <tt>plugin_host</tt> crash when running a process that itself crashes</li>
+</ul>
+
+<h3>Miscellaneous</h3>
+<ul class="topic">
+    <li>Fixed a <i>Goto Symbol in Project</i> performance regression</li>
+    <li>F21..F24 keys can now be bound</li>
+    <li>Assorted minor fixes and stability improvements</li>
+    <li>Linux: Improved behavior of <tt>--wait</tt> command line argument when Sublime Text isn't currently running</li>
+</ul>
+
+</article>
+
+<article>
+<h2>3.1.1 (Build 3176)</h2>
+<div class="release-date">14 May 2018</div>
+<ul>
+    <li>Various fixes from 3.1</li>
+    <li>Added <tt>ui_scale</tt> setting to scale the entire UI, <tt>dpi_scale</tt> is now Linux-only</li>
+    <li>Linux: Added workaround for a display driver issue, giving significant scrolling improvements for some environments</li>
+    <li>Indexing: Added more information in the <i>Indexing Status</i> window, and reduced CPU utilization in some scenarios</li>
+</ul>
+</article>
+
+<article>
+<h2>3.1 (Build 3170)</h2>
+<div class="release-date">7 May 2018</div>
+<div class="forum-link">See also the <a href="https://www.sublimetext.com/blog/articles/sublime-text-3-point-1">Announcement Post</a></div>
+
+<h3>Themes/UI</h3>
+<ul class="topic">
+    <li>Windows: Added support for Windows 10 (and 8.1) per-monitor DPI scaling</li>
+    <li>Improved overall High DPI support</li>
+    <li>Added support for 8k monitors and 300% DPI scale</li>
+    <li>Themes can now provide <tt>@3x</tt> versions of images for very high DPI monitors</li>
+    <li>Improved indent guide positions when using line padding</li>
+    <li>Rulers are drawn with stippled lines</li>
+    <li>Linux/Windows: Improved High DPI minimap rendering</li>
+    <li>Mac: Fixed occasional yellow or black windows when using a theme with a colored title bar</li>
+    <li>Mac: Double-clicking a themed title bar now performs the default system action</li>
+    <li>Mac: Fixed sizing of some dialog windows when a theme uses a themed title bar</li>
+    <li>Mac: Fixed gutter icons sometimes not drawing</li>
+</ul>
+
+<h3>Text Rendering</h3>
+<ul class="topic">
+    <li>Added ligature support for symbols</li>
+    <li>Added <tt>font_options</tt> for controlling ligatures and stylistic sets</li>
+    <li>Improved rendering and selection of emojis</li>
+    <li>Tab width is now properly measured for proportional fonts</li>
+    <li>Windows: DirectWrite is now used by default for all fonts</li>
+    <li>Windows: Support <tt>gray_antialias</tt> in conjunction with DirectWrite</li>
+    <li>Windows: improved DirectWrite anti-aliasing, adding support for system ClearType tuning</li>
+</ul>
+
+<h3>Goto Definition</h3>
+<ul class="topic">
+    <li>Added Goto References when hovering over a symbol</li>
+    <li>Added <tt>goto_reference</tt> command to the Goto menu</li>
+</ul>
+
+<h3>Color Schemes</h3>
+<ul class="topic">
+    <li>Added new color scheme format, <a href="http://www.sublimetext.com/docs/3/color_schemes.html">.sublime-color-scheme</a></li>
+    <li>Add <a href="http://www.sublimetext.com/docs/3/color_schemes.html#hashed_syntax_highlighting">Hashed Syntax Highlighting</a></li>
+    <li>Added the <i>Celeste</i> color scheme to showcase hashed syntax highlighting</li>
+    <li>Selections now render by default with true rounded corners</li>
+    <li>Added <a href="http://www.sublimetext.com/docs/3/color_schemes.html#global_settings-selection">color scheme settings</a> for selection border width, corner style and radius</li>
+    <li>Selection background and border now support alpha channels</li>
+    <li>Improved color scheme reloading</li>
+    <li>Added <i>Convert Color Scheme</i> command</li>
+    <li>Added support for the <tt>invisibles</tt> key in color schemes</li>
+    <li><tt>selection_foreground</tt> can now be specified on a per-scope basis</li>
+    <li>Color Schemes can specify <tt>bold</tt> and <tt>italic</tt> in the <tt>brackets_options</tt> key</li>
+    <li>Improved handling of <tt>invalid.deprecated</tt> scopes in default color schemes</li>
+</ul>
+
+<h3>Syntax Highlighting</h3>
+<ul class="topic">
+    <li>Add <tt><a href="http://www.sublimetext.com/docs/3/syntax.html#match_patterns">embed</a></tt> action to <tt>.sublime-syntax</tt> files for improved syntax nesting</li>
+    <li>Added <i>Git Formats</i> package for Git config files and use as <tt>core.editor</tt>, with thanks to <a href="https://github.com/y0ssar1an">Ryan Boehning</a> and <a href="https://github.com/deathaxe">deathaxe</a></li>
+    <li>Many syntax highlighting improvements, including significant improvements to:
+        <ul>
+            <li><i>JavaScript</i>, with thanks to <a href="https://github.com/Thom1729">Thomas Smith</a></li>
+            <li><i>ShellScript</i>, with thanks to <a href="https://github.com/rwols">Raoul Wols</a></li>
+            <li><i>Makefiles</i>, with thanks to <a href="https://github.com/rwols">Raoul Wols</a></li>
+            <li><i>Java</i>, with thanks to <a href="https://github.com/lastsecondsave">lastsecondsave</a></li>
+            <li><i>C#</i>, with thanks to <a href="https://github.com/keith-hall">keith-hall</a></li>
+            <li><i>Markdown</i>, with thanks to <a href="https://github.com/keith-hall">keith-hall</a></li>
+            <li><i>Python</i>, with thanks to <a href="https://github.com/FichteFoll">FichteFoll</a></li>
+        </ul>
+    </li>
+    <li>Added stand alone syntax test runner for Linux, allowing for <a href="https://github.com/sublimehq/Packages/blob/master/.travis.yml">CI testing</a></li>
+    <li>Various syntax definition errors now include the file name in the message</li>
+</ul>
+
+<h3>Command Palette</h3>
+<ul class="topic">
+    <li>New <i>Command Palette</i> implementation that can accept text input from users</li>
+    <li>Fuzzy matching can match terms out of order by space separating them</li>
+    <li>Added new commands <i>Arithmetic</i>, <i>Rename File</i> and <i>View Package File</i> to showcase new features</li>
+    <li>Keyboard shortcut hints are no longer cut off at 15 characters</li>
+</ul>
+
+<h3>Build Systems</h3>
+<ul class="topic">
+    <li>Improve cancellation handling</li>
+    <li>Use <tt>/usr/bin/env</tt> to locate bash</li>
+    <li>Fix multi-byte encodings sometimes triggering decoding errors</li>
+    <li>Improved <tt>exec</tt> build target handling of killing child processes</li>
+</ul>
+
+<h3>Files and Folders</h3>
+<ul class="topic">
+    <li>Improved handling of symlinks in the sidebar, including additions and removals</li>
+    <li>Symlinks no longer have an expand arrow in the sidebar, but have a <i>Reveal Link Source</i> context menu entry</li>
+    <li>Add support for <tt>binary_file_patterns</tt>, <tt>index_exclude_patterns</tt> and <tt>index_include_patterns</tt> to <tt>.sublime-project</tt> files</li>
+    <li><tt>index_exclude_patterns</tt> and <tt>index_include_patterns</tt> can now match full paths instead of just filename</li>
+    <li>Linux/Windows: File system notifications now account for symlinks (and Windows junctions)</li>
+    <li>Linux: file system notification now only requires a single inotify instance</li>
+    <li>Linux: Improved behavior when <tt>fs.inotify.max_user_watches</tt> is too low</li>
+    <li>Mac: Reduced the number of file stats operations</li>
+    <li>Mac: Added support for case-sensitive file systems</li>
+</ul>
+
+<h3>Input</h3>
+<ul class="topic">
+    <li>Fixed popup and auto complete windows not showing when the caret is at the leftmost position of a widget</li>
+    <li>Fix left arrow not working in the side bar</li>
+    <li>Fixed not being able to grab the scrollbar by clicking on the rightmost pixels of the window</li>
+    <li>Fix double clicking on the selection not setting input focus when <tt>drag_drop</tt> is enabled</li>
+    <li>Linux: Context menus no longer cause the editor control to be focused when closed</li>
+    <li>Windows: Fix pen input</li>
+</ul>
+
+<h3>Performance</h3>
+<ul class="topic">
+    <li>Significantly reduced memory usage related to syntax definitions - using up to 30% less total program memory</li>
+    <li>Improve idle CPU usage</li>
+    <li>Fix a bug where theme animations may continue even after a layer has been hidden, causing excessive CPU usage</li>
+    <li>Mac: Solved increased CPU usage on Macs when a GPU switch occurs while using a theme with a colored title bar</li>
+</ul>
+
+<h3>API</h3>
+<ul class="topic">
+    <li>Added <tt><a href="http://www.sublimetext.com/docs/3/api_reference.html#sublime_plugin.TextInputHandler">TextInputHandler</a></tt> and <tt><a href="http://www.sublimetext.com/docs/3/api_reference.html#sublime_plugin.ListInputHandler">ListInputHandler</a></tt> to interact with new <i>Command Palette</i> functionality</li>
+    <li>Added <tt><a href="http://www.sublimetext.com/docs/3/api_reference.html#sublime.View">View.style()</a></tt> and <tt><a href="http://www.sublimetext.com/docs/3/api_reference.html#sublime.View">View.style_for_scope()</a></tt></li>
+    <li>Added automatically generated scope names for use with the regions API: <tt>region.redish</tt>, <tt>region.orangish</tt>, <tt>region.yellowish</tt>, <tt>region.greenish</tt>, <tt>region.bluish</tt>, <tt>region.purplish</tt> and <tt>region.pinkish</tt></li>
+    <li>Improve <tt>View.find()</tt> and <tt>View.find_all()</tt> performance when doing literal matches</li>
+    <li>Expanded <tt><a href="http://www.sublimetext.com/docs/3/api_reference.html#sublime_plugin.ViewEventListener">ViewEventListener</a></tt> API</li>
+    <li>Fix <tt>EventListener.on_activated_async()</tt> not being called for views when the editor starts</li>
+    <li>Add <tt>ViewEventListener.on_activated()</tt> and <tt>ViewEventListener.on_activated_async()</tt> to be called for views when the editor starts</li>
+    <li>Improve tracebacks for Python in <tt>.sublime-package</tt> files</li>
+    <li><tt>shell_environment</tt> is now ensured to be loaded before <tt>plugin_loaded()</tt> is called on plugins</li>
+    <li>Plugin commands are now created before <tt>plugin_loaded()</tt> is run</li>
+    <li>Loaded plugins are now stored in <tt>__plugins__</tt> rather than <tt>plugins</tt></li>
+    <li>The Python <tt>ssl</tt> module will now negotiate TLS 1.2, 1.1 or 1.0 with the <tt>PROTOCOL_TLSv1</tt> constant</li>
+    <li>Updated Python environment with SQLite 3.22.0, and OpenSSL 1.0.2n</li>
+</ul>
+
+<h3>Miscellaneous</h3>
+<ul class="topic">
+    <li>Fixed being unable to load dictionary files larger than 16mb</li>
+    <li>Fixed an issue where out of memory conditions would trigger a buffer overflow instead of a clean crash</li>
+    <li>Word wrap is turned on by default for the console</li>
+    <li>Added <tt>Regex Replace Widget.sublime-settings</tt> and <tt>Console Input Widget.sublime-settings</tt></li>
+    <li>Fixed a number of bugs that would cause crashes</li>
+</ul>
+
+</article>
+
+<article>
+<h2>3.0 (Build 3143)</h2>
+<div class="release-date">13 September 2017</div>
+<div class="forum-link">See also the <a href="https://www.sublimetext.com/blog/articles/sublime-text-3-point-0">Announcement Post</a></div>
+<ul>
+    <li>Refreshed UI theme, including full high DPI support</li>
+    <li>New icon</li>
+    <li>Added alternate theme, Adaptive, that inherits colors from the color scheme</li>
+    <li>Added new color schemes <i>Breakers</i>, <i>Mariana</i> and <i>Sixteen</i>, derived from the excellent work of Chris Kempson and Dmitri Voronianski</li>
+    <li>Added color scheme and theme switchers with live preview via the command palette</li>
+
+    <li>Windows: Added touch input</li>
+    <li>Linux: Added <a href="https://www.sublimetext.com/docs/3/linux_repositories.html">repositories</a> for apt, yum and pacman</li>
+    <li>Mac: Added Touch Bar support</li>
+
+    <li>Mac: Support for custom color window title bars on OS X 10.10+</li>
+    <li>Many additions and bug fixes to the theme engine, plus <a href="https://www.sublimetext.com/docs/3/themes.html">full documentation</a></li>
+
+    <li>Significant improvements to Markdown syntax highlighting, with thanks to <a href="https://github.com/keith-hall">keith-hall</a></li>
+    <li>Significant improvements to C# syntax highlighting, with thanks to <a href="https://github.com/gwenzek">gwenzek</a></li>
+    <li>Significant improvements to Java syntax highlighting, with thanks to <a href="https://github.com/djspiewak">djspiewak</a></li>
+    <li>Significant improvements to Python syntax highlighting, with thanks to <a href="https://github.com/FichteFoll">FichteFoll</a></li>
+    <li>Significant improvements for R syntax highlighting, with thanks to <a href="https://github.com/randy3k">randy3k</a></li>
+    <li>Markdown: Improved symbol handling</li>
+    <li>C#: Improved symbol handling</li>
+    <li>Many other syntax highlighting improvements</li>
+    <li>Various bugs with the syntax highlighting engine have been resolved</li>
+
+    <li>Fixed several crash issues</li>
+
+    <li>Improved responsiveness when the system is under high CPU load</li>
+
+    <li>High DPI textures are used on Windows and Linux when the DPI scale is greater than 1.0</li>
+    <li>Improved font selection on all platforms, allowing selection of different weights by name</li>
+    <li>Added setting <tt>theme_font_options</tt> to control font rendering of UI elements</li>
+    <li>Improved auto indent rules for HTML and PHP</li>
+    <li>Font geometry issues that prevent bold or italics are now printed in the console</li>
+
+    <li>Fixed flash-of-white that could occur when the auto complete window is closed</li>
+    <li>Disable scroll animation when <tt>animation_enabled</tt> is false in settings</li>
+    <li>Files can now be renamed when only the case has changed</li>
+    <li>New windows start with an empty find history</li>
+    <li>Find in Files panel now responds to <tt>find_all</tt> and <tt>replace_all</tt> commands</li>
+    <li>Various regex handling improvements in the Find panel</li>
+    <li>Fixed text widgets cutting off the bottom pixel of their selection border</li>
+    <li>Fixed an issue with <tt>close_windows_when_empty</tt> in empty session</li>
+    <li>Fixed empty panes on startup when <tt>hot_exit</tt> was set to false</li>
+    <li>Fix Open Containing Folder on Windows with a folder containing a comma</li>
+    <li>Fix multi-cursor pasting when clipboard contains one or more full lines</li>
+    <li>Prevent UNC paths from being mangled by <tt>edit_settings</tt></li>
+    <li>Prevent a crash when a malformed regex is used in indentation settings</li>
+    <li>Improved rendering performance with a large number of gutter icons</li>
+    <li>Gutter icons are now sized properly on Windows and Linux high DPI screens</li>
+    <li>Improved sidebar performance when folders contain many thousands of files</li>
+    <li>Improved inline error message style</li>
+    <li>Fixed an issue where multiple indexing status windows could be shown</li>
+
+    <li>Windows: Font rendering defaults to DirectWrite unless using Consolas or Courier New</li>
+    <li>Windows: Added support for <tt>no_antialias</tt> font option when using DirectWrite</li>
+    <li>Windows: Improved touch pad scrolling</li>
+    <li>Windows: Improved file change detection robustness</li>
+    <li>Windows: Improved font selection logic</li>
+    <li>Windows: Fix ctrl+` shortcut for UK (ISO) keyboards</li>
+    <li>Windows: Improved fallback font handling in UI elements</li>
+    <li>Windows: The subl executable on OS X and plugin_host.exe on Windows are now signed</li>
+    <li>Windows: sublime_text.exe now has CompanyName set in VERSIONINFO</li>
+
+    <li>Mac: Handle layout changes due to macOS Sierra tabs</li>
+    <li>Mac: Improved default web browser detection</li>
+    <li>Mac: OS X 10.11 and macOS 10.12+ default to using San Francisco for the UI font</li>
+    <li>Mac: Fixed file change notifications from freezing UI on macOS Sierra</li>
+    <li>Mac: the user's default shell is executed and environmental variables are set in the plugin Python environment</li>
+
+    <li>Linux: Update X11 selection on clipboard every time selection changes</li>
+    <li>Linux: Improved <tt>MOD3</tt> modifier key handling</li>
+
+    <li>minihtml: Added support for borders</li>
+    <li>minihtml: Respects <tt>font_options</tt> from the settings</li>
+    <li>minihtml: Fixed layout of html popups on Windows and Linux under High DPI</li>
+    <li>minihtml: Fixed crash when doctype is present</li>
+    <li>minihtml: Fixed a crash from non-existent CSS vars</li>
+    <li>minihtml: Fixed a crash triggered by bad image paths</li>
+
+    <li>API: Add <tt>View.text_to_window()</tt> and <tt>View.layout_to_window()</tt></li>
+    <li>API: All API functions now accept and return device-independent-pixels</li>
+    <li>API: Fixed input panel not running <tt>on_cancel</tt> when re-showing the input panel</li>
+    <li>API: Fixed selector scoring with the &amp; operator</li>
+    <li>API: Fixed a bug causing incorrect phantom contents</li>
+    <li>API: Fixed crash in <tt>Window.set_view_index()</tt></li>
+    <li>API: Updated OpenSSL to 1.0.2k, SQLite to 3.16.02</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3126</h2>
+<div class="release-date">23 September 2016</div>
+<ul>
+    <li>Added Indexing Status to the Help menu to give more information about what the indexer is doing</li>
+    <li>Fixed a compatibility issue with some third party syntax definitions that include <tt>JavaScript.sublime-syntax</tt></li>
+    <li>Reduced the default number of worker processes used for indexing. This can be manually controlled via the <tt>index_workers</tt> setting</li>
+    <li>API: Updated OpenSSL to 1.0.2i</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3124</h2>
+<div class="release-date">22 September 2016</div>
+<div class="forum-link">See also the <a href="https://www.sublimetext.com/blog/articles/sublime-text-3-build-3124">Blog Post</a></div>
+<ul>
+    <li>Settings now open in a new window, with the default and user settings side-by-side</li>
+    <li>Hovering over a symbol will show a popup indicating where it's defined. This is controlled with the <tt>show_definitions</tt> setting.</li>
+    <li>Build errors are now shown inline at the location where they occurred. This is controlled with the <tt>show_errors_inline</tt> setting.</li>
+    <li>Added a menu item and command palette entry to install Package Control</li>
+
+    <li>Various syntax highlighting improvements</li>
+    <li>Significant improvements to the Scala syntax definition, with thanks to <a href="https://github.com/djspiewak">djspiewak</a> and <a href="https://github.com/gwenzek">gwenzek</a></li>
+    <li>Significant improvements to the LaTeX syntax definition, with thanks to <a href="https://github.com/randy3k">randy3k</a></li>
+
+    <li>Improved Goto Definition performance when a large number of files are open</li>
+    <li>Minor improvements to file load times</li>
+    <li>Linux and OSX: Improved memory usage</li>
+
+    <li>Fixed Replace not working as expected in conjunction with regex look behinds</li>
+    <li>Fixed build systems being unable to use "file_patterns" with the <tt>exec</tt> command</li>
+    <li>Corrected tab overlap on High DPI Windows and Linux configurations</li>
+    <li>OSX: Fixed a graphical glitch when switching tabs</li>
+    <li>OSX: Fixed crash when entering a surrogate pair via hex input</li>
+    <li>Linux: Improved rendering performance for some systems</li>
+
+    <li>File encoding of open files is now stored in the session</li>
+    <li>Build Systems may define a cancel command using the "cancel" key</li>
+    <li>Syntax: Added <tt>clear_scopes</tt> directive, to give more control over the generated scopes</li>
+    <li>Color Schemes: Added <tt>popupCss</tt> key, for defining default popup style sheets</li>
+    <li>Color Schemes: Added <tt>phantomCss</tt> key, for defining default phantom style sheets</li>
+
+    <li>minihtml: High DPI support was added for Windows and Linux</li>
+    <li>minihtml: Windows style line endings and single quoted attributes are now supported</li>
+    <li>minihtml: Child selectors may now be used in style sheets</li>
+    <li>minihtml: The <tt>inherit</tt> CSS value has been implemented</li>
+    <li>minihtml: <tt>font-family</tt> stacks may now be used</li>
+    <li>minihtml: Support for the <tt>line-height</tt> CSS property was added</li>
+    <li>minihtml: Elements may now be relatively positioned</li>
+    <li>minihtml: Inline elements support <tt>padding</tt> and <tt>background-color</tt> set</li>
+    <li>minihtml: CSS variables and the <tt>var()</tt> function are now supported</li>
+    <li>minihtml: Added the CSS color functions <tt>color()</tt> (partial), <tt>rgb()</tt>, <tt>rgba()</tt>, <tt>hsl()</tt> and <tt>hsla()</tt></li>
+    <li>minihtml: Fixed a stack overflow on Windows with too many unclosed tags</li>
+
+    <li>API: Added <tt>Phantom</tt> and <tt>PhantomSet</tt></li>
+    <li>API: Added <tt>ViewEventListener</tt></li>
+    <li>API: Added <tt>View.is_primary()</tt></li>
+    <li>API: Added <tt>EventListener.on_hover(view, point, hover_zone)</tt></li>
+    <li>API: Added functions to get and set visibility of the minimap, status bar, tabs and menu</li>
+    <li>API: Modifications to a selection are now constrained to the valid range</li>
+    <li>API: Updated Python 3.3 to commit 8e3b9bf917a7, and SQLite to 3.14.1</li>
+
+    <li>Packages: Loading packages will no longer abort if a <tt>.sublime-package</tt> is corrupt</li>
+    <li>Packages: Fixed an edge case when loading third party packages from unicode paths on Windows</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3114</h2>
+<div class="release-date">12 May 2016</div>
+<ul>
+    <li>New C++, JavaScript and Rust syntax definitions with improved accuracy and performance</li>
+    <li>Many other syntax highlighting improvements</li>
+    <li>OSX: Improved rendering performance, especially on high resolution screens</li>
+
+    <li>Improved word wrap behavior</li>
+    <li>Improved spell check behavior</li>
+    <li>Improved file indexing behavior with multiple windows open</li>
+
+    <li>Themes may now be switched on the fly without artifacts</li>
+    <li>HTML: Pressing enter when between a tag pair will increase indentation</li>
+
+    <li>Some snippets have have been moved into a sub-directories, so custom overrides and key bindings that reference them will need to be updated</li>
+    <li><tt>show_scope_name</tt> command shows the scope in a popup</li>
+    <li>Package Development: Added 'Syntax Tests - Regex Compatibility' build variant for evaluating syntax definition performance</li>
+    <li>Package Development: Expanded the set of regexes the new regex engine is able to handle</li>
+    <li>Syntax Definitions: Fixed some cases where pop matches with back references weren't working correctly</li>
+
+    <li>Fixed some Unicode handling issues in Goto Anything</li>
+    <li>Fixed a scenario where changes to <tt>.tmPreferences</tt> files weren't being picked up</li>
+    <li>Fixed a 3096 rendering performance regression</li>
+    <li>Fixed a 3096 regression in regular expressions when using <tt>\x{nnnn}</tt> escapes</li>
+    <li>Fixed a crash that could occur with an invalid <tt>result_file_regex</tt> settings</li>
+
+    <li>API: Added <tt>Window.status_message()</tt></li>
+    <li>API: Changes to how plugins are loaded. This should be transparent, but resolves a number of corner cases</li>
+    <li>API: Updated to Python 3.3.6, and now includes the <tt>_ssl</tt> module on Linux, plus <tt>sqlite3</tt> and <tt>bz2</tt> on all platforms</li>
+    <li>API: Updated OpenSSL to 1.0.2h</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3103</h2>
+<div class="release-date">9 February 2016</div>
+<div class="forum-link">See also the <a href="https://www.sublimetext.com/blog/articles/sublime-text-3-build-3103">Blog Post</a></div>
+<ul>
+    <li>Added new Syntax Definition file format, <a href="https://www.sublimetext.com/docs/3/syntax.html">.sublime-syntax</a></li>
+    <li>Added a custom regex engine that matches multiple regexps in parallel, for faster file loading and indexing</li>
+    <li>Improved Unicode support, including combining character rendering, character classification in regex searches, and case insensitivity in Goto Anything matching</li>
+    <li>Packages are now on <a href="https://github.com/sublimehq/Packages">GitHub</a></li>
+    <li>Incorporates many community provided improvements to the above packages, with significant improvements to HTML, CSS, JavaScript, Go, D and SQL</li>
+    <li>Added Panel Switcher to status bar</li>
+    <li>Better handling of troublesome files during indexing</li>
+    <li>Improved file change detection</li>
+    <li>Added "Profile Events" to the Command Palette, to help identify slow plugins</li>
+    <li>Build Systems may now define a list of file name wildcard patterns to trigger on, via the <tt>file_patterns</tt> key</li>
+    <li><tt>prompt_open_file</tt> and related commands now accept an <tt>initial_directory</tt> argument</li>
+    <li>Improved indenting behavior when <tt>indent_to_bracket</tt> is enabled</li>
+    <li>Spell Checker now reads from manually edited user preferences on the fly</li>
+    <li>Stability improvements for Find in Files when using regular expressions that result in significant backtracking</li>
+    <li>Fixed file truncation when using hexadecimal encoding</li>
+    <li>Fixed brackets in strings influencing auto indent</li>
+    <li>Fixed inconsistencies in Goto Anything when selecting symbols</li>
+    <li>Fixed tab completion regression in 3081, where h1..h6 HTML completions were not triggering</li>
+    <li>Fixed Goto Definition command not working when placed in a submenu</li>
+    <li>OSX: Fixed Emoji &amp; Symbols popup failing to insert text in some cases</li>
+    <li>Windows: Added support for inserting characters from outside of the BMP</li>
+    <li>Windows: <tt>ctrl+alt+p</tt> is no longer bound by default, due to compatibility issues with some keyboard layouts</li>
+    <li>Windows: Updated code signing certificate to no longer use SHA1</li>
+    <li>Linux: Fixed a file permission issue when running without --wait</li>
+    <li>Linux: crash_reporter is statically linked, improving system compatibility</li>
+    <li>API: Added <tt>Window.is_sidebar_visible()</tt> and <tt>Window.set_sidebar_visible()</tt></li>
+    <li>API: Added <tt>View.is_auto_complete_visible()</tt></li>
+    <li>API: Added <tt>Window.find_output_panel()</tt>, <tt>Window.destroy_output_panel()</tt>, <tt>Window.active_panel()</tt> and <tt>Window.panels()</tt></li>
+    <li>API: Added <tt>Window.create_output_panel()</tt> now accepts an optional parameter, <tt>"unlisted"</tt></li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3083</h2>
+<div class="release-date">26 March 2015</div>
+<ul>
+    <li>Fixed high CPU usage caused by a corrupt index. This was occuring for some users upgrading from 3065</li>
+    <li>Added setting <tt>index_workers</tt> to control the number of threads used for file indexing. By default the number of threads is based on the number of CPU cores. By setting <tt>index_workers</tt> to 1 or 2, indexing will be slower, but less intrusive</li>
+    <li>Fixed a crash when showing the Command Palette with an empty .sublime-build file</li>
+    <li>Tab completion no longer completes numbers. <i>Edit/Show Completions</i> can still be used for this</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3080</h2>
+<div class="release-date">24 March 2015</div>
+<div class="forum-link">See also the <a href="http://www.sublimetext.com/blog/articles/sublime-text-3-build-3080">Blog Post</a></div>
+<ul>
+    <li>Fixed Redo sometimes restoring the selection to the incorrect location</li>
+
+    <li>Reworked how Build Systems are selected (<a href="http://www.sublimetext.com/forum/viewtopic.php?f=2&t=17471">More Information</a>) </li>
+    <li>Build Systems may now declare "keyfiles" (e.g., 'Makefile' for the Make build system) to better auto detect which build system to use</li>
+    <li>Improved handling of build systems that generate lots of output</li>
+    <li>New windows always use the automatic build system, rather than the build system of the last used window</li>
+
+    <li>Command Palette now remembers the last entered string</li>
+    <li>Improved change detection for files that disappear and reappear, as happens with disconnected network drives</li>
+    <li><tt>atomic_save</tt> is disabled by default</li>
+
+    <li>Right clicking on a URL will show an "Open URL" menu item</li>
+    <li>Added Goto Definition to the context menu</li>
+    <li>Improved behavior of Goto Definition when using multiple panes</li>
+
+    <li>Misspelled words can now be added to the dictionary, in addition to being ignored</li>
+    <li>Fixed Ignored Words not persisting after exiting</li>
+    <li>Fixed a long standing issue with spell checking and non-ascii characters</li>
+    <li>Added <tt>spelling_selector</tt> setting, to control what text is checked for misspellings</li>
+    <li>Tweaked handling of syntax definitions and unused captures, resolving an issue with spell checking in Markdown links.</li>
+
+    <li>Goto Anything supports :line:col syntax in addition to :line</li>
+    <li>Added Edit Project to the Command palette</li>
+    <li>Improved quote auto pairing logic</li>
+    <li>Added <tt>&lt;current file&gt;</tt> option to Find in Files</li>
+    <li>Improved Console Panel scrolling behavior</li>
+    <li>.tmLanguage files may contain a hidden setting, to indicate they shouldn't be displayed to the user</li>
+    <li>Improved some error messages when parsing .tmLanguage files</li>
+    <li><tt>remember_open_files</tt> setting is now defaults to false. Note that this change will have no effect if the <tt>hot_exit</tt> setting is left at its default value of true</li>
+    <li>Added <tt>auto_complete_cycle</tt> setting</li>
+
+    <li>Fixed Minimap refusing to draw on very large windows</li>
+    <li>Fixed not being able to click on the selected row of the auto complete popup</li>
+    <li>Fixed sidebar icons sometimes being invisible on startup</li>
+    <li>Transient sheets (e.g., as created by Goto Anything when previewing files) are no longer added to the Recently Closed list</li>
+    <li>Improved scrolling behavior when <tt>line_padding_top</tt> is &gt; 0</li>
+    <li>Fixed a bug with scrolling tabs, where a 1 pixel line would occasionally appear underneath them</li>
+    <li>Fixed tabset background being set to the wrong color on startup if different colored tabs are used</li>
+    <li>Updated to a never version of leveldb, fixing constant low level CPU usage if the index becomes corrupted</li>
+    <li>Fixed a crash that could occur when directories are being rapidly deleted and recreated</li>
+    <li>Fixed a crash that occurred when dragging rows scrolled out of view in the side bar</li>
+    <li>Fixed a long standing plugin_host crash triggered via modal dialogs</li>
+    <li>Fixed a typo in the "Save Workspace As" dialog</li>
+    <li>Fixed incorrect menu mnemonics</li>
+
+    <li>Linux: Added sudo save</li>
+
+    <li>Windows: Popup windows are able to receive scroll wheel input</li>
+    <li>Windows: subl.exe command line helper accepts wildcards</li>
+    <li>Windows: Fixed access denied errors that could occur when saving with <tt>atomic_save</tt> disabled</li>
+    <li>Windows: Added workaround for broken <tt>std::condition_variable</tt> in MSVC 2012, fixing a crash in <tt>plugin_host</tt></li>
+    <li>Windows: Added more descriptive errors when the Update Installer fails to rename a folder</li>
+    <li>Windows: Fixed incorrect window sizing after making a maximised window full screen</li>
+
+    <li>OSX: Added work around for performActionForItemAtIndex: taking an excessively long time in Yosemite. This affected any commands that had a corresponding menu item.</li>
+    <li>OSX: Workaround for an OS issue with zero size windows and OpenGL views</li>
+    <li>OSX: subl command line tool no longer uses Distributed Objects, resolving some intermittent failures</li>
+
+    <li>Posix: Fixed new files not respecting the umask permission flags</li>
+
+    <li>API: Added <tt>View.show_popup()</tt> and related functions</li>
+    <li>API: Added <tt>sublime.yes_no_cancel_dialog()</tt></li>
+    <li>API: Added <tt>sublime.expand_variables()</tt></li>
+    <li>API: Added <tt>Window.extract_variables()</tt></li>
+    <li>API: Added <tt>Sheet.view()</tt></li>
+    <li>API: <tt>Window.show_quick_panel()</tt> now accepts the flag <tt>sublime.KEEP_OPEN_ON_FOCUS_LOST</tt></li>
+    <li>API: <tt>Window.show_quick_panel()</tt> will now scroll to the selected item when shown</li>
+    <li>API: Fixed <tt>EventListener.on_post_window_command()</tt> not getting called</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3065</h2>
+<div class="release-date">27 August 2014</div>
+<ul>
+    <li>Added sidebar icons</li>
+    <li>Added sidebar loading indicators</li>
+    <li>Sidebar remembers which folders are expanded</li>
+    <li>Tweaked window closing behavior when pressing ctrl+w / cmd+w</li>
+    <li>Improved quote auto pairing logic</li>
+    <li>Selected group is now stored in the session</li>
+    <li>Added <tt>remember_full_screen</tt> setting</li>
+    <li>Fixed a lockup when transitioning from a blinking to a solid caret</li>
+    <li>Fixed a crash in plugin_host</li>
+    <li>Fixed a crash triggered by Goto Anything cloning views</li>
+    <li>Windows: Added command line helper, subl.exe</li>
+    <li>OSX: Added 'New Window' entry to dock menu</li>
+    <li>Posix: Using correct permissions for newly created files and folders</li>
+    <li>API: Updated to Python 3.3.3</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3059</h2>
+<div class="release-date">17 December 2013</div>
+<ul>
+    <li>Added tab scrolling, controlled by the <tt>enable_tab_scrolling</tt> setting</li>
+    <li>Added image preview when opening images</li>
+    <li>Encoding and line endings can be displayed in the status bar with the <tt>show_encoding</tt> and <tt>show_line_endings</tt> settings</li>
+    <li>Added settings <tt>caret_extra_top</tt>, <tt>caret_extra_bottom</tt> and <tt>caret_extra_width</tt> to control the caret size</li>
+    <li>Added <tt>index_exclude_patterns</tt> setting to control which files get indexed</li>
+    <li>Automatically closing windows when the last tab is dragged out</li>
+    <li>Changed tab close behavior: the neighboring tab is now always selected</li>
+    <li>When the last file is closed, a new transient file is created automatically</li>
+    <li>Ctrl+Tab ordering is stored in the session</li>
+    <li>Added <tt>minimap_scroll_to_clicked_text</tt> setting</li>
+    <li>Improved error messages when unable to save files</li>
+    <li>Auto complete now works as expected in macros</li>
+    <li>Minor improvements to Python syntax highlighting</li>
+    <li>Vintage: A block caret is now used</li>
+    <li>Vintage: Improved behavior of visual line mode with word wrapped lines</li>
+    <li>Find in Files will no longer block when FIFOs are encountered</li>
+    <li>Linux: Added menu hiding</li>
+    <li>Linux: Fixed incorrect handling of double clicks in the Find panel</li>
+    <li>Linux: Fixed incorrect underscore display in some menus</li>
+    <li>Posix: Fixed new files being created with unexpected permissions</li>
+    <li>Windows: SSE support is no longer required for 32 bit builds</li>
+    <li>API: <tt>Window.open_file()</tt> now accepts an optional group parameter</li>
+    <li>API: Plugins may now call <tt>Settings.clear_on_change()</tt> within a callback from <tt>Settings.add_on_change()</tt></li>
+    <li>API: Calling <tt>Settings.add_on_change()</tt> from within a settings change callback won't cause the added callback to be run</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3047</h2>
+<div class="release-date">27 June 2013</div>
+<ul>
+    <li>Beta is now open to non-registered users</li>
+    <li>Windows and Linux: Added High DPI support</li>
+    <li>Improved file change detection</li>
+    <li>Improved rendering performance</li>
+    <li>HTML tag auto completion is better behaved in script tags</li>
+    <li>Fixed a crash on exit that could occur when hot_exit is disabled</li>
+    <li>Linux and OSX: <tt>atomic_save</tt> is adaptively disabled when it's not possible to preserve file permissions</li>
+    <li>OSX: Fixed context menus not working when the application is in the background</li>
+    <li>Windows: Auto updater supports updating from unicode paths</li>
+    <li>API: Plugins in zip files are able to be overridden via files on disk</li>
+    <li>API: Added support for the termios module on Linux and OS X</li>
+    <li>API: Fixed <tt>Selection.contains()</tt></li>
+    <li>API: Fixed settings objects getting invalidated too early with cloned views</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3033</h2>
+<div class="release-date">7 May 2013</div>
+<ul>
+    <li>New auto update system for Windows and OS X</li>
+    <li>Previewing a file from the side bar will no longer add an entry to the OPEN FILES section of the side bar</li>
+    <li>Added Paste from History</li>
+    <li>Added setting <tt>auto_find_in_selection</tt>, for S2 style Find in Selection logic</li>
+    <li>Find panel has a drop down arrow to select previous items</li>
+    <li>Pressing right in the Goto Anything overlay will open the selected file without closing the overlay</li>
+    <li>Fixed several crash bugs</li>
+    <li>Further startup time improvements</li>
+    <li>Improved HTML completions when typing outside of tags</li>
+    <li>Fixed Close Tag not respecting self closing tags</li>
+    <li>PHP: Improved auto indenting for the alternative control syntax</li>
+    <li>Added setting <tt>always_prompt_for_file_reload</tt></li>
+    <li>Improved handling of deleted files when restoring sessions</li>
+    <li>Deleting a file via the side bar will first close the corresponding view, if any</li>
+    <li>"Remove all Folders from Project" now prompts to confirm</li>
+    <li>Added telemetry. Telemetry is disabled by default, but can be turned on with the enable_telemetry setting</li>
+    <li>Using Google Breakpad to automatically report crashes</li>
+    <li>Updated syntax highlighting for PHP, Haskell and Pascal</li>
+    <li>Symlinks are followed by default in folders added to the side bar</li>
+    <li>Windows: Fixed erroneous entries in system menu</li>
+    <li>Windows: New style Open Folder dialogs are used on Vista and later</li>
+    <li>API: Significantly improved communication speed with plugin_host</li>
+    <li>API: Added <tt>View.close()</tt></li>
+    <li>API: Added <tt>View.show_popup_menu()</tt></li>
+    <li>API: Added <tt>is_valid()</tt> method to <tt>View</tt> and <tt>Window</tt>, to determine if the handle has been invalidated</li>
+    <li>API: Added <tt>EventListener.on_post_text_command()</tt> and <tt>EventListener.on_post_window_command()</tt></li>
+    <li>API: <tt>EventListener.on_text_command()</tt> and <tt>EventListener.on_window_command()</tt> are now called when the menu is used</li>
+    <li>API: Added <tt>sublime.get_macro()</tt></li>
+    <li>API: <tt>View.substr(point)</tt> now has the same semantics as S2 for out of bounds addresses</li>
+    <li>API: <tt>View.command_history(0, True)</tt> now returns the last modifying command, as expected</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3021</h2>
+<div class="release-date">14 March 2013</div>
+<ul>
+    <li>Linux: Fixed atomic_save working incorrectly with symlinks</li>
+    <li>Windows: Fixed a crash under Windows 7 x64</li>
+    <li>Fixed a crash that could occur on file open</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3019</h2>
+<div class="release-date">12 March 2013</div>
+<ul>
+    <li>Added Jump Back and Jump Forward commands, available from the Goto menu</li>
+    <li>HTML: Improved completions and auto indent</li>
+    <li>HTML: Tags are closed when &lt;/ is entered. This is controlled by the auto_close_tags setting</li>
+    <li>Smarter word navigation</li>
+    <li>File saves are atomic. This can be disabled with the atomic_save setting</li>
+    <li>Find and Replace panels automatically resize when multi line strings are entered</li>
+    <li>Faster loading of large, plain text files</li>
+    <li>Improved console scrolling performance on high resolution displays</li>
+    <li>Improved handling of files with extremely long lines</li>
+    <li>Minimap view rectangle auto hides (controlled by the always_show_minimap_viewport setting)</li>
+    <li>Indexing: Added detection of stuck workers</li>
+    <li>Updated C# package</li>
+    <li>Added invert_selection command</li>
+    <li>CSS: Completions will not be offered when typing in selectors</li>
+    <li>Fixed Reveal in Side Bar</li>
+    <li>Fixed C++ syntax highlighting for nested class forward declarations</li>
+    <li>Exec panel scrolls again</li>
+    <li>OSX: Added support for line numbers sent via apple events</li>
+    <li>Windows: ok_cancel_dialog uses new visual styles</li>
+    <li>Linux: Using the correct version number for the deb files</li>
+    <li>API: Added <tt>EventListener.on_text_command()</tt> and <tt>EventListener.on_window_command()</tt></li>
+    <li>API: Added <tt>sublime.load_resource()</tt>, <tt>sublime.load_binary_resource()</tt> and <tt>sublime.find_resources()</tt></li>
+    <li>API: Added <tt>sublime.encode_value()</tt> and <tt>sublime.decode_value()</tt></li>
+    <li>API: <tt>View.sel()</tt> supports negative indices</li>
+    <li>API: Implemented <tt>Settings.add_on_change()</tt> and <tt>Settings.clear_on_change()</tt></li>
+    <li>API: <tt>View.add_regions()</tt> will accept package relative paths for the icon</li>
+    <li>API: <tt>View.add_regions()</tt> can show underlines</li>
+    <li>API: Added <tt>EventListener.on_pre_close()</tt> callback</li>
+    <li>API: <tt>View.window()</tt> will now work even if the view isn't frontmost</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3012</h2>
+<div class="release-date">10 February 2013</div>
+<ul>
+    <li>Fixed a syntax highlighting regression in 3011</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3011</h2>
+<div class="release-date">9 February 2013</div>
+<ul>
+    <li>Improved protection against degenerate syntax definitions</li>
+    <li>Linux: Fixed version incompatibilities with <tt>libffi</tt></li>
+    <li>OSX: Fixed <tt>exec</tt> command on 10.7</li>
+    <li>OSX: Fixed incompatibility between Dictionary lookup and <tt>gpu_window_buffer</tt></li>
+    <li>Objective-C: Improved symbol indexing</li>
+    <li>API: Plugins may import modules from <tt>plugin_loaded()</tt></li>
+    <li>API: <tt>sublime.version()</tt>, <tt>sublime.platform()</tt>, <tt>sublime.architecture()</tt>, and <tt>sublime.channel()</tt> may now be used before <tt>plugin_loaded()</tt> is called</li>
+    <li>API: Added <tt>View.command_history()</tt></li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3010</h2>
+<div class="release-date">3 February 2013</div>
+<ul>
+    <li>OSX: Buttery smooth scrolling on Retina displays</li>
+    <li>Symbol Indexing: fixed degenerate behavior that could cause an explosion in the number of worker processes</li>
+    <li>Symbol Indexing: less worker processes are used, to be more unobtrusive</li>
+    <li>Symbol Indexing: better handling of binary files</li>
+    <li>OSX: Control+C will cancel the current build</li>
+    <li>API: <tt>View.insert()</tt> returns the number of characters inserted</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3009</h2>
+<div class="release-date">1 February 2013</div>
+<ul>
+    <li>Improved symbol indexing for Ruby</li>
+    <li>OSX: Reduced CPU usage when <tt>gpu_window_buffer</tt> is enabled</li>
+    <li>Symbol Indexing works on Windows XP</li>
+    <li>Can monitor indexing behavior by entering <tt>sublime.log_indexing(True)</tt> in the console</li>
+    <li>Tweaked brace matching logic</li>
+    <li>Removed undesirable animation during startup</li>
+    <li>API: Added _ssl module on OS X and Windows</li>
+    <li>API: Fixed ctypes regression in 3008 on OS X</li>
+    <li>API: Plugins can define <tt>plugin_loaded()</tt> and <tt>plugin_unloaded()</tt> module functions. <tt>plugin_loaded()</tt> will be called when the API is ready to use.</li>
+    <li>API: Added <tt>View.find_by_class()</tt></li>
+    <li>API: Added <tt>View.expand_by_class()</tt></li>
+    <li>API: Fixed <tt>EventListener.on_new_async()</tt></li>
+    <li>API: Tweaking handling of <tt>show_quick_panel</tt> when items is a mixed list of strings and sequences</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3008</h2>
+<div class="release-date">30 January 2013</div>
+<ul>
+    <li>Fixed <i>Open all with current extension as</i></li>
+    <li>Fixed the <i>Tools/Macros</i> menu</li>
+    <li>Linux: Restored compatibility with older glibc versions</li>
+    <li>Linux: Added Installed-Size field to the <tt>.deb</tt></li>
+    <li>API: <tt>urllib.request</tt> can be imported on OS X</li>
+    <li>API: Fixed missing <tt>_socket</tt> module on 32 bit Windows</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3007</h2>
+<div class="release-date">30 January 2013</div>
+<ul>
+    <li>OSX: Fixed extraneous dock icons</li>
+    <li>Added Symbol Indexing support for Scala</li>
+    <li>Fixed crash that could occur when using Goto Anything</li>
+    <li>Fixed the <tt>ignored_packages</tt> setting not working correctly with zipped packages</li>
+    <li>Vintage: Fixed 'o' and 'O'</li>
+    <li>API: Fixed <tt>on_query_completions</tt> not working correctly in some circumstance</li>
+    <li>API: Re-added <tt>view.score_selector()</tt></li>
+    <li>API: <tt>Selection.add()</tt> no longer ignores the xpos</li>
+</ul>
+</article>
+
+<article>
+<h2>Build 3006</h2>
+<div class="release-date">29 January 2013</div>
+<ul>
+    <li>Added Goto Definition, and Goto Symbol in Project</li>
+    <li>Significantly improved startup time</li>
+    <li>Significantly improved Replace All performance</li>
+    <li>Improved matching algorithm used for Goto Anything and Autocomplete, now accepts transposed characters</li>
+    <li>UI: Enhanced pane management</li>
+    <li>UI: Previewing files from the sidebar creates a preview tab</li>
+    <li>UI: Improved animation in the side bar</li>
+    <li>Projects: Multiple workspaces can be created for a single project</li>
+    <li>Projects: When adding folders to the sidebar, symlinks are not followed by default. This can be changed by enabling follow_symlinks in the project.</li>
+    <li>Build Systems: Added 'shell_cmd', which supersedes 'cmd', with more intuitive syntax</li>
+    <li>Build Systems: Better PATH handling behavior on OS X when using shell_cmd.</li>
+    <li>Build Systems: 'Make' build system has an improved error message regex</li>
+    <li>Build Systems: Syntax file can be specified for the output</li>
+    <li>Build Systems: Word wrap is enabled by default</li>
+    <li>Find in Files: Improved handling of binary files</li>
+    <li>Find in Files: Line numbers are hidden in the output</li>
+    <li>Find: Find in Selection will no longer be automatically selected</li>
+    <li>Find: Removed Reverse option</li>
+    <li>OSX: Improved performance on Retina displays</li>
+    <li>OSX: 10.7 or later is required</li>
+    <li>OSX: 64 bit only</li>
+    <li>OSX: System version of Python is no longer a dependency</li>
+    <li>OSX: Italic fonts are synthesized when not available in the typeface</li>
+    <li>Linux: .deb files are provided</li>
+    <li>Linux: Starting from the command line will daemonize the process by default</li>
+    <li>API: Upgraded from Python 2.6 to Python 3.3</li>
+    <li>API: Plugins run out-of-process</li>
+    <li>API: Plugin API is now threadsafe</li>
+    <li>API: Some API events are now run asynchronously</li>
+    <li>API: <tt>View.begin_edit()</tt> / <tt>View.end_edit()</tt> are no longer accessible</li>
+    <li>API: Projects are exposed to the API</li>
+    <li>API: Added <tt>Window.settings()</tt> and <tt>Window.template_settings()</tt></li>
+    <li>API: <tt>show_quick_panel</tt> accepts an <tt>on_highlighted</tt> callback</li>
+</ul>
+</article>

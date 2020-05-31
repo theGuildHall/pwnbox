@@ -1,0 +1,12 @@
+Welcome to your Parrot Linux desktop!
+
+Internet access is allowed, subject to the following:
+1. This instance is not meant to perform assessments or interact with any live targets.
+2. Pen-testing any target (with or without consent) outside of HTB labs is prohibited.
+
+Remember! Do not store any personal or sensitive information in this box!
+Its only purpose is to allow you to play in our labs.
+
+Feel free to install any tools you prefer. PS: You have sudo :)
+
+Note that once this instance is terminated, all data including tools you installed will be lost!
