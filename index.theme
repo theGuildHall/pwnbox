@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=HackTheBox
+Type=X-GNOME-Metatheme
+Comment=
+
+[X-GNOME-Metatheme]
+GtkTheme=ARK-Dark
+MetacityTheme=ARK-Dark
+IconTheme=Material-Black-Lime-Numix-FLAT
+GtkColorScheme=base_color:#404552,fg_color:#D3DAE3,tooltip_fg_color:#FFFFFF,selected_bg_color:#5294E2,selected_fg_color:#FFFFFF,text_color:#D3DAE3,bg_color:#383C4A,insensitive_bg_color:#3e4350,insensitive_fg_color:#7c818c,notebook_bg:#404552,dark_sidebar_bg:#353945,tooltip_bg_color:#353945,link_color:#5294E2,menu_bg:#383C4A
+CursorTheme=Breeze
+CursorSize=24
+BackgroundImage=/usr/share/backgrounds/htb.jpg
