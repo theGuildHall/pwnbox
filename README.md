@@ -12,6 +12,8 @@ Once you have downloaded the OS, install it and proceed to step 2.
 
 ## Step 2 - Setup your scripts in /opt
 
+Pwnbox has some scripts inside folder `/opt` which you will need to create. Use `sudo` to create these files
+
 ### banner
 
 ```bash
@@ -237,3 +239,23 @@ if ! shopt -oq posix; then
   fi
 fi
 ```
+Create folder in /opt called 'bloodhound'
+
+- `sudo mkdir /opt/bloodhound`
+
+Then create script `startBH.sh`
+
+```bash
+#!/bin/bash
+NEOSTATUS=$(sudo neo4j status)
+if [ "$NEOSTATUS" == "Neo4j is not running" ]; then
+   echo "Database is not running. Starting..."
+   sudo neo4j start
+   sleep 10
+   bloodhound
+else
+   echo "Database is already started."
+   bloodhound
+fi
+```
+
