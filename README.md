@@ -1,5 +1,7 @@
 # Pwnbox
 
+!(htb screenshot)[https://github.com/theGuildHall/pwnbox/htb_screenshot.png]
+
 Want to replicate Hack the Box very own Pwnbox? Follow the guide below!
 This should give you the "look and feel" of pwnbox used by Hack The Box.
 Everything shown here can be done in your own Parrot OS, whether it is VM or main OS.
