@@ -1,6 +1,6 @@
 # Pwnbox
 
-[htb screenshot](htb_screenshot.png?raw=true "Pwnbox")
+![htb screenshot](htb_screenshot.png?raw=true "Pwnbox")
 
 Want to replicate Hack the Box very own Pwnbox? Follow the guide below!
 This should give you the "look and feel" of pwnbox used by Hack The Box.
