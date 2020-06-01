@@ -1,6 +1,6 @@
 # Pwnbox
 
-!(htb screenshot)[https://github.com/theGuildHall/pwnbox/htb_screenshot.png]
+!(htb screenshot)[https://github.com/theGuildHall/pwnbox/htb_screenshot.png?raw=true]
 
 Want to replicate Hack the Box very own Pwnbox? Follow the guide below!
 This should give you the "look and feel" of pwnbox used by Hack The Box.
