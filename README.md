@@ -205,7 +205,7 @@ Once installed, you can further customize the terminal by creating a folder in y
 
 Then copy over the `Microsoft.PowerShell_profile.ps1` to your location (copy and pasting leads to a bunch of question marks)
 
-`cp ~/gitclones/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1`
+`cp ~/gitclones/pwnbox/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1`
 
 ## Step 4: Update theme
 
