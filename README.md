@@ -27,6 +27,12 @@ In my setup below, I have created a directory called "gitclones" in my home dire
 `cd ~/gitclones/pwnbox`
 `sudo cp *.sh /opt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt`
 
+We also need to add your vpn file to your /etc/openvpn location:
+`sudo cp [your VPN FILE].ovpn /etc/openvpn/`
+`sudo mv /etc/openvpn/[your VPN file].ovpn /etc/openvpn/[your VPN file].conf`
+
+Make sure you rename your file to `.conf`. Then you can start your VPN like you would normally do.
+
 ## Step 3: Update your terminal
 
 nano .bashrc
