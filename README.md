@@ -187,7 +187,7 @@ Then reload your bashrc file:
 
 `source ~/.bashrc`
 
-### NOTE: Once you are connected to the HTB vpn, you'll see your IP and other info in your termianl. Otherwise, it'll just show your username/host and current working directory.
+> NOTE: Once you are connected to the HTB vpn, you'll see your IP and other info in your termianl. Otherwise, it'll just show your username/host and current working directory.
 
 ### Powershell terminal (optional)
 
