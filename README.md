@@ -20,15 +20,19 @@ However, I suggest you look into what each command does, where it goes, and how 
 In my setup below, I have created a directory called "gitclones" in my home directory.
 
 `mkdir ~/gitclones && cd ~/gitclones`
+
 `git clone https://github.com/theGuildHall/pwnbox.git`
 
 ## Step 2: Copy over the files
 
 `cd ~/gitclones/pwnbox`
+
 `sudo cp *.sh /opt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt`
 
 We also need to add your vpn file to your /etc/openvpn location:
+
 `sudo cp [your VPN FILE].ovpn /etc/openvpn/`
+
 `sudo mv /etc/openvpn/[your VPN file].ovpn /etc/openvpn/[your VPN file].conf`
 
 Make sure you rename your file to `.conf`. Then you can start your VPN like you would normally do.
@@ -178,6 +182,7 @@ fi
 ```
 
 Then reload your bashrc file:
+
 `source ~/.bashrc`
 
 ### NOTE: Once you are connected to the HTB vpn, you'll see your IP and other info in your termianl. Otherwise, it'll just show your username/host and current working directory.
@@ -185,14 +190,20 @@ Then reload your bashrc file:
 ## Step 4: Update theme
 
 Copy background image to machine:
+
 `sudo cp gitclones/pwnbox/htb.jpg /usr/share/backgrounds/`
 
 Copy icons and sublime text to machine:
+
 `sudo cp -R ~/gitclones/pwnbox/Material-Black-Lime-Numix-FLAT/ /usr/share/icons/`
+
 `sudo cp -R ~/gitclones/pwnbox/htb /usr/share/icons/`
+
 `sudo mkdir /usr/share/themes/HackTheBox && sudo cp ~/gitclones/pwnbox/index.theme /usr/share/themes/HackTheBox`
 
+
 Now go to the top menu bar and choose:
+
 System -> Preferences -> Look and Feel -> Appearance
 
 You should now see a theme called "HackTheBox". Select it and select "Apply Background".
@@ -214,6 +225,7 @@ Click on the bash icon to the left, and a window should pop up asking you to sel
 ### To install sublime text...
 
 `sudo cp -R ~/gitclones/pwnbox/sublime_text /opt`
+
 Then on the top panel, right click on the "notepad" and select "properties". In the "name", change it to "Sublime", and then under "command", change it to "/opt/sublime_text/sublime %F". Then click on the icon to the left, and change it to "/opt/icons/sublime-text.png"
 
 ### To get the 'ping panel'
