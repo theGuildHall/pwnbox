@@ -39,6 +39,8 @@ Make sure you rename your file to `.conf`. Then you can start your VPN like you 
 
 ## Step 3: Update your terminal
 
+### Bash terminal
+
 nano .bashrc
 erase everything inside it (or better yet, make a backup of it cause that's a good habit: `cp ~/.bashrc ~/.bashrc.bak`)
 Copy this into your .bashrc file:
@@ -186,6 +188,24 @@ Then reload your bashrc file:
 `source ~/.bashrc`
 
 ### NOTE: Once you are connected to the HTB vpn, you'll see your IP and other info in your termianl. Otherwise, it'll just show your username/host and current working directory.
+
+### Powershell terminal (optional)
+
+Since ParrotOS doesn't come with the Powershell core installed, you can add it with:
+
+`sudo apt install -y powershell`
+
+Confirm that it is installed with
+
+`pwsh`
+
+Once installed, you can further customize the terminal by creating a folder in your `/home/[username]/.config/powershell/Microsoft.PowerShell_profile.ps1`
+
+`mkdir ~/.config/powershell/`
+
+Then copy over the `Microsoft.PowerShell_profile.ps1` to your location (copy and pasting leads to a bunch of question marks)
+
+`cp ~/gitclones/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1`
 
 ## Step 4: Update theme
 
