@@ -248,7 +248,7 @@ Click on the bash icon to the left, and a window should pop up asking you to sel
 
 `sudo cp -R ~/gitclones/pwnbox/sublime_text /opt`
 
-Then on the top panel, right click on the "notepad" and select "properties". In the "name", change it to "Sublime", and then under "command", change it to "/opt/sublime_text/sublime %F". Then click on the icon to the left, and change it to "/opt/icons/sublime-text.png"
+Then on the top panel, right click on the "notepad" and select "properties". In the "name", change it to "Sublime", and then under "command", change it to "/opt/sublime_text/sublime_text %F". Then click on the icon to the left, and change it to "/opt/icons/sublime-text.png"
 
 ### To get the 'ping panel'
 
