@@ -18,6 +18,10 @@ However, I suggest you look into what each command does, where it goes, and how 
   what the box?
 ```
 
+## Step 0: Parrot MATE
+
+Just want to clarify that the instructions below work on Parrot Mate, available to download here: [https://download.parrot.sh/parrot/iso/4.9.1/Parrot-security-4.9.1_x64.iso](https://download.parrot.sh/parrot/iso/4.9.1/Parrot-security-4.9.1_x64.iso)
+
 ## Step 1: Clone Repo 
 In my setup below, I have created a directory called "gitclones" in my home directory.
 
