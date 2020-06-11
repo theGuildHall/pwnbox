@@ -1,0 +1,6 @@
+[General]
+confirmLogout=true
+excludeApps=
+loginMode=default
+offerShutdown=true
+shutdownType=2

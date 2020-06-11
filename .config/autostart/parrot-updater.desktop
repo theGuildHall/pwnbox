@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Name=System Updater
+Comment=Update reminder for Parrot OS
+Icon=synaptic
+Exec=/usr/bin/update-reminder scheduled
+Terminal=false
+Type=Application
+Categories=
+X-MATE-Autostart-enabled=false

@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+	<Name>Applications</Name>
+	<MergeFile type="parent">/etc/xdg/menus/mate-applications.menu</MergeFile>
+	<Menu>
+		<Name>Development</Name>
+		<Include>
+			<Filename>mozo-made.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>mozo-made-1.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>geany.desktop</Filename>
+			<Filename>joe.desktop</Filename>
+			<Filename>jmacs.desktop</Filename>
+			<Filename>jpico.desktop</Filename>
+			<Filename>jstar.desktop</Filename>
+			<Filename>python2.7.desktop</Filename>
+			<Filename>python3.7.desktop</Filename>
+			<Filename>python3.8.desktop</Filename>
+			<Filename>sublime_text.desktop</Filename>
+			<Filename>mozo-made.desktop</Filename>
+			<Filename>mozo-made-1.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+</Menu>

@@ -1,0 +1,11 @@
+# GIMP action-history
+
+(history-item "tools-scale" 1)
+(history-item "file-open" 0)
+(history-item "file-export-as" 1)
+(history-item "tools-free-select" 0)
+(history-item "tools-rect-select" 0)
+(history-item "file-save" 0)
+(history-item "file-quit" 1)
+
+# end of action-history

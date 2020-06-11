@@ -1,0 +1,25 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/PycharmProjects/htb">
+          <value>
+            <RecentProjectMetaInfo opened="true" projectWorkspaceId="1bbCe7VU4w6zRbeEO5o3B8gv1aq">
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="PC-201.7223.92" />
+              <option name="buildTimestamp" value="1588227299788" />
+              <option name="productionCode" value="PC" />
+              <option name="projectOpenTimestamp" value="1588926744560" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/PycharmProjects" />
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/PycharmProjects/htb" />
+      </list>
+    </option>
+  </component>
+</application>

@@ -1,0 +1,6 @@
+[10877][1586108216971][auth][info]["EventBus~initialize - Success"]
+[10877][1586108218401][auth][info]["Authentication~did-navigate:","https://identity.getpostman.com"]
+[10877][1586108223469][auth][info]["Authentication~onBeforeRedirect:","https://stats.g.doubleclick.net"]
+[10877][1586108223506][auth][info]["Authentication~onBeforeRedirect:","https://www.google.com"]
+[10877][1586108223542][auth][info]["Authentication~onBeforeRedirect:","https://www.google.co.uk"]
+[10877][1586108225500][auth][info]["Authentication~did-navigate:","https://identity.getpostman.com"]

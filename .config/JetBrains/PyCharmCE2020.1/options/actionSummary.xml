@@ -1,0 +1,39 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <data>
+      <entry key="CloseProject">
+        <ActionSummary times="1" last="1588891338437" />
+      </entry>
+      <entry key="EditorBackSpace">
+        <ActionSummary times="3" last="1588891795701" />
+      </entry>
+      <entry key="ShowSettings">
+        <ActionSummary times="6" last="1588926282865" />
+      </entry>
+      <entry key="com.intellij.application.options.schemes.AbstractSchemeActions$ImportAction">
+        <ActionSummary times="1" last="1588926568857" />
+      </entry>
+      <entry key="com.intellij.application.options.schemes.AbstractSchemesPanel$ShowSchemesActionsListAction">
+        <ActionSummary times="2" last="1588926567164" />
+      </entry>
+      <entry key="com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame$FlatWelcomeScreen$6">
+        <ActionSummary times="2" last="1588891457711" />
+      </entry>
+      <entry key="com.intellij.ui.CommonActionsPanel$AddButton">
+        <ActionSummary times="4" last="1588891615564" />
+      </entry>
+      <entry key="com.intellij.ui.CommonActionsPanel$EditButton">
+        <ActionSummary times="6" last="1588891736083" />
+      </entry>
+      <entry key="com.intellij.ui.CommonActionsPanel$RemoveButton">
+        <ActionSummary times="2" last="1588891614816" />
+      </entry>
+      <entry key="com.intellij.webcore.packaging.InstalledPackagesPanel$4">
+        <ActionSummary times="10" last="1588892097490" />
+      </entry>
+      <entry key="com.intellij.webcore.packaging.ManagePackagesDialog$1">
+        <ActionSummary times="10" last="1588891750025" />
+      </entry>
+    </data>
+  </component>
+</application>

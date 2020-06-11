@@ -1,0 +1,19 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Name=Firefox
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+X-GNOME-FullName=Firefox
+Exec=firefox
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/icons/htb/firefox.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=firefox
+StartupNotify=true
+Icon[en_US]=/usr/share/icons/htb/firefox.png
+Name[en_US]=Firefox
+Comment[en_US]=Browse the World Wide Web

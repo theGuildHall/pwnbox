@@ -1,0 +1,8 @@
+[2020-04-07 14:28:43.297] [sharedprocess] [info] main {"machineId":"02579430a866f27fe0e6e5c6d3663c8e9b9867f1db96513ee44a18d2ae256bbe","windowId":2}
+[2020-04-07 14:29:23.364] [sharedprocess] [info] Starting to clean up unused language packs.
+[2020-04-07 14:29:23.579] [sharedprocess] [info] Installing extension: silofy.hackthebox
+[2020-04-07 14:29:24.181] [sharedprocess] [info] Downloaded extension: silofy.hackthebox /tmp/90bbeebd-487a-4a2d-96a9-b39b230beb89
+[2020-04-07 14:29:26.861] [sharedprocess] [info] Extracted extension to /home/test/.vscode/extensions/.silofy.hackthebox-0.2.5: silofy.hackthebox
+[2020-04-07 14:29:26.862] [sharedprocess] [info] Renamed to /home/test/.vscode/extensions/silofy.hackthebox-0.2.5
+[2020-04-07 14:29:26.884] [sharedprocess] [info] Installation completed. silofy.hackthebox
+[2020-04-07 14:29:26.944] [sharedprocess] [info] Extensions installed successfully: silofy.hackthebox

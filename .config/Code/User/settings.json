@@ -1,0 +1,13 @@
+{
+    "workbench.colorTheme": "Hack The Box",
+    "workbench.preferredDarkColorTheme": "Hack The Box",
+    "editor.fontFamily":  "JetBrains Mono, Consolas, 'Courier New', monospace",
+    "editor.fontSize":  12,
+    "editor.fontWeight":  "300",
+    "editor.lineHeight":  20,
+    "editor.letterSpacing":  0.5,
+    "editor.fontLigatures":  true,
+    "editor.wordWrap":  "on",
+    "editor.formatOnPaste":  true,
+    "editor.cursorBlinking":  "smooth",
+}

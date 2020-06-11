@@ -1,0 +1,31 @@
+<application>
+  <component name="PropertiesComponent">
+    <property name="PACKAGE_FILTER" value="nmap&#10;cryptograp&#10;Beautifulsoup&#10;requests&#10;impacket" />
+    <property name="PyCharm.InitialConfiguration" value="true" />
+    <property name="PyCharm.InitialConfiguration.V2" value="true" />
+    <property name="PyCharm.InitialConfiguration.V3" value="true" />
+    <property name="PyCharm.InitialConfiguration.V4" value="true" />
+    <property name="PyCharm.InitialConfiguration.V5" value="true" />
+    <property name="PyCharm.InitialConfiguration.V6" value="true" />
+    <property name="PyCharm.InitialConfiguration.V7" value="true" />
+    <property name="PyCharm.initialConfigurationShown" value="true" />
+    <property name="ask.about.ctrl.y.shortcut" value="true" />
+    <property name="file.chooser.recent.files" value="/opt/HackTheBox.icls" />
+    <property name="file.gist.reindex.count" value="3873" />
+    <property name="fileTypeChangedCounter" value="1" />
+    <property name="ide.memory.adjusted" value="true" />
+    <property name="lastSeenTip" value="neue-FindInPath.html" />
+    <property name="lastTimeTipsWereShown" value="1588891059162" />
+    <property name="last_opened_file_path" value="/opt/HackTheBox.icls" />
+    <property name="seenTips" value="neue-FindInPath.html" />
+    <property name="selected.color.option.type" value="BOOKMARKS_ATTRIBUTES" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+  </component>
+  <component name="PyTestFrameworkService">
+    <option name="SDK_TO_PYTEST">
+      <map>
+        <entry key="$USER_HOME$/PycharmProjects/htb/venv/bin/python" value="false" />
+      </map>
+    </option>
+  </component>
+</application>

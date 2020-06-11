@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=mate-terminal -e /opt/banner.sh
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[en_US]=Welcome Banner
+Name=Welcome Banner
+Comment[en_US]=
+Comment=
+X-MATE-Autostart-Delay=0

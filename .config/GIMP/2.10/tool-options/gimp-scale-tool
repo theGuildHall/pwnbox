@@ -1,0 +1,5 @@
+# GIMP gimp-scale-tool options
+
+(constrain-scale no)
+
+# end of gimp-scale-tool options

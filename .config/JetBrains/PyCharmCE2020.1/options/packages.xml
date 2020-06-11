@@ -1,0 +1,11 @@
+<application>
+  <component name="PyPackageService">
+    <option name="additionalRepositories">
+      <list>
+        <option value="http://pip.htb-cloud.com/root/pypi/+simple/" />
+      </list>
+    </option>
+    <option name="PYPI_REMOVED" value="true" />
+    <option name="LAST_TIME_CHECKED" value="1588891110806" />
+  </component>
+</application>

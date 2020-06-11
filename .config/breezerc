@@ -1,0 +1,7 @@
+[Common]
+ShadowSize=ShadowSmall
+ShadowStrength=89
+
+[Windeco]
+AnimationsDuration=50
+DrawBorderOnMaximizedWindows=true

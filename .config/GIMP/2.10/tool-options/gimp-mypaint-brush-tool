@@ -1,0 +1,7 @@
+# GIMP gimp-mypaint-brush-tool options
+
+(mybrush "Standard")
+(brush-size 51)
+(brush-hardness 0.5)
+
+# end of gimp-mypaint-brush-tool options

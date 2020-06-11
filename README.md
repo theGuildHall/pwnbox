@@ -195,6 +195,10 @@ Then reload your bashrc file:
 
 > NOTE: Once you are connected to the HTB vpn, you'll see your IP and other info in your termianl. Otherwise, it'll just show your username/host and current working directory.
 
+> NOTE 2: Pwnbox now has an **updated** terminal. This is purely by choice so if you want to use what Pwnbox has, replace the "PS1" line above that has "xterm*|rxvt*)..." with this new *PS1* output:
+
+`\[\033[1;32m\]\342\224\200$([[ $(/opt/vpnbash.sh) == *"10."* ]] && echo "[\[\033[1;34m\]$(/opt/vpnserver.sh)\[\033[1;32m\]]\342\224\200[\[\033[1;37m\]$(/opt/vpnbash.sh)\[\033[1;32m\]]\342\224\200")[\[\033[1;37m\]\u\[\033[01;32m\]@\[\033[01;34m\]\h\[\033[1;32m\]]\342\224\200[\[\033[1;37m\]\w\[\033[1;32m\]]\$\[\e[0m\]`
+
 ### Powershell terminal (optional)
 
 Since ParrotOS doesn't come with the Powershell core installed, you can add it with:

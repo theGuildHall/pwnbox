@@ -1,0 +1,5 @@
+location:/usr/share/applications/firefox.desktop
+separator
+separator
+location:/usr/share/applications/parrot-burpsuite.desktop
+location:/usr/share/applications/parrot-msfconsole.desktop
