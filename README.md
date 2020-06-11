@@ -262,6 +262,20 @@ Right click on a blank space on the top panel and choose "Add to Panel". In the 
 
 Right click on a blank space on the top panel and search for "System monitor". Select it and add it. Right click on the little black box that appeared, select "preferences" and under "System monitor width", update it to "135" pixels, and updated the field below it to "100" milliseconds.
 
+### 'Plank', the MacOS bar on the bottom
+
+Start by deleting the bottom panel by `right clicking` and selecting `delete this panel`.
+
+`sudo apt install plank -y`
+
+Once Plank is installed, on the top bar, go to "System -> Preferences -> Personal -> Startup Application". Right hand side, select "Add" and fill in the values:
+
+- Name: Plank
+- Command: plank
+- Delay: 0
+
+Plank will now startup whenever you reboot your machine.
+
 # Conclusion
 
 This should be it for the setup! The actual pwnbox has some extra icons on the desktop such as a shortcut to "bloodhound", "burpsuite", and others. There's even a MacOS launcher bar on the bottom. I'm going to leave that up to you to add. 
