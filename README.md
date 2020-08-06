@@ -221,7 +221,7 @@ Then copy over the `Microsoft.PowerShell_profile.ps1` to your location (copy and
 
 Copy background image to machine:
 
-`sudo cp gitclones/pwnbox/htb.jpg /usr/share/backgrounds/`
+`sudo cp ~/gitclones/pwnbox/htb.jpg /usr/share/backgrounds/`
 
 Copy icons and sublime text to machine:
 
