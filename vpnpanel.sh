@@ -4,7 +4,7 @@ lab=$(cat /etc/openvpn/*.conf | grep "remote " | cut -d " " -f 2 | cut -d "." -f
 
 if [[ $htbip == *"10."* ]]
 then
-   gwip=$(route -n | grep tun0 | grep UG | tr -s " " | cut -d " " -f 2)
+   gwip=$(ip route | grep tun0 | grep via | cut -d " " -f 3)
    ping=$(ping -c 1 $gwip -W 1 | sed '$!d;s|.*/\([0-9.]*\)/.*|\1|' | cut -c1-4)
    echo "HTB VPN: $lab ($htbip) [$ping ms]"
 else
