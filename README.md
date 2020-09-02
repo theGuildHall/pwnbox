@@ -2,6 +2,8 @@
 
 ![htb screenshot](htb_screenshot.png?raw=true "Pwnbox")
 
+**For those using Kali, I added some steps at the bottom to get the new zsh terminal in 2020.3 to show your server/IP**
+
 Want to replicate Hack the Box very own Pwnbox? Follow the guide below!
 This should give you the "look and feel" of pwnbox used by Hack The Box.
 Everything shown here can be done in your own Parrot OS, whether it is VM or main OS.
@@ -279,6 +281,33 @@ Once Plank is installed, on the top bar, go to "System -> Preferences -> Persona
 - Delay: 0
 
 Plank will now startup whenever you reboot your machine.
+
+## For Kali Users
+
+With the new 2020.3 version of Kali, they implemented a new shell for `zsh`. I wanted to get the HTB IP and server in the terminal prompt so I made some updates.
+
+1. Clone or copy over the `vpnpanel.sh`, `vpnbash.sh`, and `vpnpanel.sh` over to your `/opt/*` directory.
+2. Update the `vpnbash.sh` script to this:
+
+```bash
+#!/bin/bash
+htbip=$(ip addr | grep tun0 | grep inet | grep 10. | tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1)
+
+if [[ $htbip == *"10."* ]]
+then
+   echo "[%B%F{%(#.red.blue)}$(/opt/vpnserver.sh)%b%F{%(#.blue.green)}]-[%B%F{%(#.red.blue)}$htbip%b%F{%(#.blue.green)}]-"
+else
+   echo ""
+fi
+
+```
+
+3. (optional) If you haven't switched your kali terminal to zsh, do that with `chsh -s /usr/bin/zsh`. Then log out, log back in. You should have a cool looking prompt
+
+4. Update the PS1 variable in `~/.zshrc` (using nano or your favorite editor) to `PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}$(/opt/vpnbash.sh)(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '`
+
+If you want to test it out before changing your .zshrc file, use `export PS1='%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}$(/opt/vpnbash.sh)(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]
+└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '`
 
 # Conclusion
 
