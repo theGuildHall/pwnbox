@@ -22,7 +22,7 @@ However, I suggest you look into what each command does, where it goes, and how 
 
 ## Step 0: Parrot MATE
 
-Just want to clarify that the instructions below work on Parrot Mate, available to download here: [https://download.parrot.sh/parrot/iso/4.10/Parrot-security-4.10_x64.iso](https://download.parrot.sh/parrot/iso/4.10/Parrot-security-4.10_x64.iso)
+Just want to clarify that the instructions below work on Parrot Mate, available to download here: [https://download.parrot.sh/parrot/iso/4.10/Parrot-security-4.10_x64.iso](https://download.parrot.sh/parrot/iso/4.10/Parrot-security-4.10_amd64.iso)
 
 ## Step 1: Clone Repo 
 In my setup below, I have created a directory called "gitclones" in my home directory.
